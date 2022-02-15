@@ -33,7 +33,7 @@ jobs:
       shell: powershell
     - name: Create PullRequest
       id: createPullRequest
-      uses: krishna-kariya/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v3
       with:
         title: Update to verison ${{ github.event.inputs.newExtensionVersion }}
         body: |
@@ -42,7 +42,7 @@ jobs:
         branch: action/release.${{ github.event.inputs.newExtensionVersion }}
         labels: |
           automated pr
-        reviewers: shrohilla
+        reviewers: krishna-kariya
     - name: Check outputs
       run: |
           echo "Pull Request Number - ${{ steps.createPullRequest.outputs.pull-request-number }}"
